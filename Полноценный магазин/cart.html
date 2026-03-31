@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Корзина - HandmadeMarket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">HandmadeMarket</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Каталог</a></li>
+                    <li><a href="cart.html">Корзина <span id="cart-count" class="badge">0</span></a></li>
+                    <li><a href="profile.html">Личный кабинет</a></li>
+                    <li><a href="admin.html" id="admin-link" style="display: none;">Админ-панель</a></li>
+                    <li><a href="login.html" id="login-link">Войти</a></li>
+                    <li><a href="#" id="logout-link" style="display: none;">Выйти</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Корзина</h1>
+        
+        <div class="cart-container" id="cart-container">
+            <div class="cart-items" id="cart-items">
+                <!-- Товары в корзине -->
+            </div>
+            
+            <div class="cart-summary">
+                <h3>Итого:</h3>
+                <p class="total-amount" id="cart-total">0 ₽</p>
+                <button id="checkout-btn" class="btn btn-primary">Оформить заказ</button>
+                <button id="clear-cart-btn" class="btn btn-secondary">Очистить корзину</button>
+            </div>
+        </div>
+        
+        <div class="empty-cart" id="empty-cart" style="display: none;">
+            <p>Ваша корзина пуста</p>
+            <a href="index.html" class="btn btn-primary">Перейти к покупкам</a>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/cart.js"></script>
+</body>
+</html>

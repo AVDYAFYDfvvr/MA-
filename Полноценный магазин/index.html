@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маркетплейс ручной работы</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">HandmadeMarket</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Каталог</a></li>
+                    <li><a href="cart.html">Корзина <span id="cart-count" class="badge">0</span></a></li>
+                    <li><a href="profile.html">Личный кабинет</a></li>
+                    <li><a href="admin.html" id="admin-link" style="display: none;">Админ-панель</a></li>
+                    <li><a href="login.html" id="login-link">Войти</a></li>
+                    <li><a href="#" id="logout-link" style="display: none;">Выйти</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="catalog-header">
+            <h1>Каталог товаров</h1>
+            
+            <div class="filters-section">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Поиск по названию или описанию...">
+                </div>
+
+                <div class="filters">
+                    <select id="category-filter">
+                        <option value="">Все категории</option>
+                    </select>
+
+                    <select id="sort-filter">
+                        <option value="createdAt-desc">Новинки</option>
+                        <option value="price-asc">Цена: по возрастанию</option>
+                        <option value="price-desc">Цена: по убыванию</option>
+                        <option value="rating-desc">По рейтингу</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <section class="products-grid" id="products-container">
+            <!-- Товары будут загружаться сюда -->
+        </section>
+
+        <div class="load-more">
+            <button id="load-more-btn" class="btn btn-primary">Показать еще</button>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/catalog.js"></script>
+</body>
+</html>

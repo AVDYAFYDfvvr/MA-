@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админ-панель - HandmadeMarket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">HandmadeMarket</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Каталог</a></li>
+                    <li><a href="cart.html">Корзина</a></li>
+                    <li><a href="profile.html">Личный кабинет</a></li>
+                    <li><a href="admin.html">Админ-панель</a></li>
+                    <li><a href="#" id="logout-link">Выйти</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Панель администратора</h1>
+        
+        <div class="admin-tabs">
+            <button class="tab-btn active" data-tab="products">Товары</button>
+            <button class="tab-btn" data-tab="categories">Категории</button>
+            <button class="tab-btn" data-tab="orders">Заказы</button>
+            <button class="tab-btn" data-tab="users">Пользователи</button>
+            <button class="tab-btn" data-tab="reviews">Модерация отзывов</button>
+            <button class="tab-btn" data-tab="stats">Статистика</button>
+        </div>
+
+        <div class="tab-content active" id="products-tab">
+            <div class="admin-header">
+                <h2>Управление товарами</h2>
+                <button class="btn btn-primary" id="add-product-btn">Добавить товар</button>
+            </div>
+            
+            <form id="product-form" style="display: none;" class="admin-form">
+                <h3>Добавить/Редактировать товар</h3>
+                <div class="form-group">
+                    <label for="product-name">Название:</label>
+                    <input type="text" id="product-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-description">Описание:</label>
+                    <textarea id="product-description" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="product-price">Цена:</label>
+                    <input type="number" id="product-price" step="0.01" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-category">Категория:</label>
+                    <select id="product-category" required></select>
+                </div>
+                <div class="form-group">
+                    <label for="product-image">URL изображения:</label>
+                    <input type="url" id="product-image" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-stock">Количество на складе:</label>
+                    <input type="number" id="product-stock" required>
+                </div>
+                <div class="form-group">
+                    <label for="product-tags">Теги (через запятую):</label>
+                    <input type="text" id="product-tags">
+                </div>
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+                <button type="button" class="btn btn-secondary" id="cancel-product-form">Отмена</button>
+            </form>
+
+            <div class="items-list" id="products-list"></div>
+        </div>
+
+        <div class="tab-content" id="categories-tab">
+            <h2>Управление категориями</h2>
+            <form id="category-form" class="admin-form">
+                <div class="form-group">
+                    <label for="category-name">Название категории:</label>
+                    <input type="text" id="category-name" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Добавить категорию</button>
+            </form>
+            <div class="items-list" id="categories-list"></div>
+        </div>
+
+        <div class="tab-content" id="orders-tab">
+            <h2>Управление заказами</h2>
+            <div class="items-list" id="orders-list"></div>
+        </div>
+
+        <div class="tab-content" id="users-tab">
+            <h2>Управление пользователями</h2>
+            <div class="items-list" id="users-list"></div>
+        </div>
+
+        <div class="tab-content" id="reviews-tab">
+            <h2>Модерация отзывов</h2>
+            <div class="items-list" id="reviews-list"></div>
+        </div>
+
+        <div class="tab-content" id="stats-tab">
+            <h2>Статистика</h2>
+            <div class="stats-grid" id="stats-container"></div>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет - HandmadeMarket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">HandmadeMarket</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Каталог</a></li>
+                    <li><a href="cart.html">Корзина <span id="cart-count" class="badge">0</span></a></li>
+                    <li><a href="profile.html">Личный кабинет</a></li>
+                    <li><a href="admin.html" id="admin-link" style="display: none;">Админ-панель</a></li>
+                    <li><a href="login.html" id="login-link">Войти</a></li>
+                    <li><a href="#" id="logout-link" style="display: none;">Выйти</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="profile-tabs">
+            <button class="tab-btn active" data-tab="profile">Профиль</button>
+            <button class="tab-btn" data-tab="orders">История заказов</button>
+            <button class="tab-btn" data-tab="reviews">Мои отзывы</button>
+        </div>
+
+        <div class="tab-content active" id="profile-tab">
+            <h2>Редактирование профиля</h2>
+            <form id="profile-form" class="profile-form">
+                <div class="form-group">
+                    <label for="displayName">Имя:</label>
+                    <input type="text" id="displayName" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Телефон:</label>
+                    <input type="tel" id="phone">
+                </div>
+                <div class="form-group">
+                    <label for="city">Город:</label>
+                    <input type="text" id="city">
+                </div>
+                <div class="form-group">
+                    <label for="address">Адрес:</label>
+                    <input type="text" id="address">
+                </div>
+                <div class="form-group">
+                    <label>Настройки уведомлений:</label>
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="notificationsEmail"> Email-уведомления
+                        </label>
+                        <label>
+                            <input type="checkbox" id="notificationsOrder"> Уведомления о заказах
+                        </label>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Сохранить изменения</button>
+            </form>
+        </div>
+
+        <div class="tab-content" id="orders-tab">
+            <h2>История заказов</h2>
+            <div id="orders-list"></div>
+        </div>
+
+        <div class="tab-content" id="reviews-tab">
+            <h2>Мои отзывы</h2>
+            <div id="user-reviews-list"></div>
+        </div>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/profile.js"></script>
+</body>
+</html>

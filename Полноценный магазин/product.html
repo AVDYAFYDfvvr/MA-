@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Товар - HandmadeMarket</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <a href="index.html" class="logo">HandmadeMarket</a>
+                <ul class="nav-menu">
+                    <li><a href="index.html">Каталог</a></li>
+                    <li><a href="cart.html">Корзина <span id="cart-count" class="badge">0</span></a></li>
+                    <li><a href="profile.html">Личный кабинет</a></li>
+                    <li><a href="admin.html" id="admin-link" style="display: none;">Админ-панель</a></li>
+                    <li><a href="login.html" id="login-link">Войти</a></li>
+                    <li><a href="#" id="logout-link" style="display: none;">Выйти</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container">
+        <div class="product-detail" id="product-detail">
+            <!-- Детальная информация о товаре -->
+        </div>
+
+        <section class="reviews-section">
+            <h2>Отзывы</h2>
+            
+            <div class="add-review" id="add-review-form" style="display: none;">
+                <h3>Оставить отзыв</h3>
+                <form id="review-form">
+                    <div class="rating-select">
+                        <label>Оценка:</label>
+                        <select id="review-rating" required>
+                            <option value="5">5 - Отлично</option>
+                            <option value="4">4 - Хорошо</option>
+                            <option value="3">3 - Нормально</option>
+                            <option value="2">2 - Плохо</option>
+                            <option value="1">1 - Ужасно</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="review-comment">Комментарий:</label>
+                        <textarea id="review-comment" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить отзыв</button>
+                </form>
+            </div>
+
+            <div class="reviews-list" id="reviews-container">
+                <!-- Отзывы будут загружаться сюда -->
+            </div>
+        </section>
+
+        <section class="similar-products">
+            <h2>Похожие товары</h2>
+            <div class="products-grid" id="similar-products-container"></div>
+        </section>
+    </main>
+
+    <script type="module" src="js/firebase.js"></script>
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/product.js"></script>
+</body>
+</html>
